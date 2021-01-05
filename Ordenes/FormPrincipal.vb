@@ -36,9 +36,9 @@ Public Class FormPrincipal
             FormBuscarOT.Show()
         End If
 
-        ''   If (Login.WobjUserSession.IdPerfil = 11 Or Login.WobjUserSession.NombrePerfil = "COORDINADOR") Then
-        ''  FormCoord.Show()
-        ''  End If
+        If (Login.WobjUserSession.IdPerfil = 11 Or Login.WobjUserSession.NombrePerfil = "COORDINADOR") Then
+            FormCoord.Show()
+        End If
     End Sub
 
     Private Sub SalirToolStripMenuItem_Click(sender As System.Object, e As EventArgs) Handles SalirToolStripMenuItem.Click

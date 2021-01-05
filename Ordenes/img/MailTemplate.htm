@@ -1,0 +1,96 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+	<head>
+		<title></title>
+		 <style>
+    /* Definimos una clase para usar con tablas, y aplicamos bordes a
+       los distintos elementos (tabla, encabezado, filas y columnas) */
+    .tabla-con-borde,
+    .tabla-con-borde th,
+    .tabla-con-borde tr,
+    .tabla-con-borde td {
+      border: 1px solid;
+      padding: 4px;
+      border-collapse: collapse;
+    }
+    /* estilo para el título de la tabla */
+    .tabla-con-borde caption {
+      font-weight: bold;
+    }
+
+    /* definir fondo para encabezado y pie de tabla */
+    .tabla-con-borde thead, .tabla-con-borde tfoot {
+      background: #395870;
+      background: linear-gradient(#49708f, #293f50);
+      color: white;
+    }
+    /* resaltar una fila al pasar con el ratón */
+    .tabla-con-borde tbody tr:hover {
+       /* El modificador "important" se usa para forzar la especificidad
+          sobre otras reglas */
+      background-color: lightblue!important;
+    }
+    /* cambiar el color de fondo para filas impares en cuerpo de tabla */
+    .tabla-con-borde tbody tr:nth-child(odd) {
+      background-color: #eee;
+    }
+    /* para alinear a la derecha las cifras en celdas de tabla */
+    .derecha {
+      text-align: right;
+    }
+
+  </style>
+	</head>
+	<body>
+    <img src = "{rutaImagen}" /><br /><br />
+    <div style = "border-top:3px solid #22BCE5; border-bottom: 3px solid #22bce5;padding-bottom: 27px;">&nbsp;
+	<br /><br />
+    <span style = "font-family:Arial;font-size:10pt">
+    Estimado(a),<br /><br />
+    Le informamos de la creación de una nueva orden de trabajo:	<br /><br />
+    <!--<b>N° Orden:</b>{Norden}<br />
+    <b>Estado  :</b>{Estado}-->
+	<table class="tabla-con-borde" style="width: 50%;">    
+    <colgroup>
+      <col>
+      <col>
+      <col>
+      <col>
+      <col>
+      <col>
+    </colgroup>
+    <thead>
+      <tr>
+        <th scope="col" >N° Orden</th>
+        <th scope="col">Estado</th> 
+        <th scope="col">Piso</th>
+        <th scope="col">Módulo</th>
+        <th scope="col">Descripción del Problema</th>    
+      </tr>
+    </thead>
+    <tbody>
+      <tr>        
+        <td>{Norden}</td>
+        <td>{Estado}</td>
+        <td>{Piso}</td>
+        <td>{Modulo}</td>
+        <td>{Des}</td>
+      </tr>
+      
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="6"></td>
+        
+      </tr>
+    </tfoot>
+  </table>
+    <br /><br />
+    Atentamente.<br />
+    CONTROL CENTRALIZADO<br /><br />
+	P.D. FAVOR NO RESPONDER ESTE CORREO YA QUE ES UN EMAIL AUTOMÁTICO
+    </span>
+	</div>
+    </body>
+</html>
+</html>

@@ -1,0 +1,34 @@
+USE [Orden Trabajo]
+GO
+/****** Object:  StoredProcedure [dbo].[QryGetOrdenesDetalleById]    Script Date: 04/19/2019 15:46:52 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[QryGetOrdenesDetalleById]
+	@NOrden INT
+AS
+BEGIN
+	
+	SET NOCOUNT ON;
+	DECLARE @ID AS INT
+	SELECT @ID = MAX(Id) FROM DETALLE_ORDENES WHERE N_ORDEN = @NOrden
+    SELECT	 o.Id AS 'ID'
+			,o.N_ORDEN
+			,o.FECHA
+			,o.TECNICO_UNIDAD
+			,o.JEFE_UNIDAD
+			,o.SOLUCION_PROBLEMA
+			--,o.COSTO_TOTAL
+			--,o.JEFE_SERVICIO
+			,ESTADO AS 'ESTADOID'
+			,e.NomEstado AS 'ESTADO'
+			,USUARIO
+			,o.SUPERVISIO_JEFE
+			,o.COMENTARIO
+	FROM DETALLE_ORDENES o INNER JOIN Estados e ON o.ESTADO = e.IdEstado
+	WHERE o.Id = @ID AND o.N_ORDEN = @NOrden
+	
+	ORDER BY o.N_ORDEN DESC
+		
+END
